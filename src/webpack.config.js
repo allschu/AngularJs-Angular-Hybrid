@@ -1,4 +1,9 @@
 var path = require('path');
+var webpack = require('webpack');
+var helpers = require('../config/helpers');
+
+var HtmlWebpackPlugin = require('html-webpack-plugin');
+
 module.exports = {
     mode: 'development',
     entry: {
@@ -6,7 +11,7 @@ module.exports = {
         'app': './main.ts'
     },
     output: {
-        path: path.resolve(__dirname, 'dist'),
+        path: helpers.root('dist/dev'),
         publicPath: '/',
         filename: '[name].bundle.js'
     },
@@ -28,4 +33,9 @@ module.exports = {
             }
         ]
     },
+    plugins:[
+        new HtmlWebpackPlugin({
+            template: '../config/index.html'
+        })
+    ]
 }

@@ -1,11 +1,11 @@
 angular.module('testApp', ["ngRoute"]).config(function ($routeProvider) {
     $routeProvider
         .when("/", {
-            templateUrl: "page1.html",
+            template: require("./page1.html"),
             controller: "mainController"
         })
         .when("/page2", {
-            templateUrl: "page2.html",
+            templateUrl: "./page2.html",
             controller: "secondController"
         })
 });
