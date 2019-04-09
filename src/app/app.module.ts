@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpModule } from '@angular/http';
 import { UpgradeModule } from '@angular/upgrade/static';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { browser } from 'protractor';
@@ -12,10 +12,11 @@ import { browser } from 'protractor';
   ],
   imports: [
     BrowserModule,
-    HttpModule,
+    HttpClientModule,
     UpgradeModule
   ],
   providers: [],
+  entryComponents: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -5,14 +5,19 @@ angular.module('testApp', ["ngRoute"]).config(function ($routeProvider) {
             controller: "mainController"
         })
         .when("/page2", {
-            templateUrl: "./page2.html",
+            template: require("./page2.html"),
             controller: "secondController"
         })
 });
 
-angular.module('testApp').controller('mainController', ['$scope', function ($scope) {
+angular.module('testApp').controller('mainController', ['$scope', 'myFactory', function ($scope, myFactory) {
 
-    $scope.pageName = "FirstPage";
+    $scope.pageName = "FirstPage + Nasa";
+    myFactory.getNasa().then(function (response) {
+        console.log(response);
+        $scope.response = response.data.title;
+        $scope.imageUrl = response.data.url;
+    });
 
 }]);
 
