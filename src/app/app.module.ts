@@ -4,19 +4,23 @@ import { UpgradeModule } from '@angular/upgrade/static';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
-import { browser } from 'protractor';
+import { NasaServiceService } from '../services/nasa-service.service';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     UpgradeModule
   ],
-  providers: [],
-  entryComponents: [],
+  providers: [NasaServiceService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+  constructor(public upgrade: UpgradeModule){}
+  
+  ngDoBootstrap() { /* this is a placeholder to stop the bootstrapper from complaining */
+  }
+}

@@ -10,7 +10,7 @@ angular.module('testApp', ["ngRoute"]).config(function ($routeProvider) {
         })
 });
 
-angular.module('testApp').controller('mainController', ['$scope', 'myFactory', function ($scope, myFactory) {
+angular.module('testApp').controller('mainController', ['$scope', 'myFactory', 'nasaServiceService', function ($scope, myFactory, nasaServiceService) {
 
     $scope.pageName = "FirstPage + Nasa";
     myFactory.getNasa().then(function (response) {
