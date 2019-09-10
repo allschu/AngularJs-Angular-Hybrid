@@ -1,6 +1,6 @@
 # MigrationApp
 
-An example project that shows how you configure an app to launch
+An example project that shows how you configure an AngularJs (1.7.7) application bootstrapped inside Angular 6
 
 ## Start
 
