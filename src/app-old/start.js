@@ -10,13 +10,17 @@ angular.module('testApp', ["ngRoute"]).config(function ($routeProvider) {
         })
 });
 
-angular.module('testApp').controller('mainController', ['$scope', 'myFactory', 'nasaServiceService', function ($scope, myFactory, nasaServiceService) {
+angular.module('testApp').controller('mainController', ['$scope', 'myFactory', 'myFactoryTest', 'nasaServiceService', function ($scope, myFactory, myFactoryTest, nasaServiceService) {
 
     $scope.pageName = "FirstPage + Nasa";
     myFactory.getNasa().then(function (response) {
-        console.log(response);
+
         $scope.response = response.data.title;
         $scope.imageUrl = response.data.url;
+    });
+
+    myFactoryTest.save().then(function(value){
+      console.log(value);
     });
 
 }]);
