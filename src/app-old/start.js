@@ -1,9 +1,6 @@
 angular.module('testApp', ["ngRoute"]).config(function ($routeProvider, $locationProvider) {
+    $locationProvider.hashPrefix('');
     $routeProvider
-        .when("/", {
-            template: require("./page1.html"),
-            controller: "mainController"
-        })
         .when("/app-old/page1", {
           template: require("./page1.html"),
           controller: "mainController"
@@ -12,8 +9,10 @@ angular.module('testApp', ["ngRoute"]).config(function ($routeProvider, $locatio
             template: require("./page2.html"),
             controller: "secondController"
         })
-          // use the HTML5 History API
-          $locationProvider.html5Mode(true);
+        .when('/', {
+          redirectTo: '/app-old/page1'
+        })
+
 });
 
 angular.module('testApp').controller('mainController', ['$scope', 'myFactory', 'myFactoryTest', 'nasaServiceService', function ($scope, myFactory, myFactoryTest, nasaServiceService) {
