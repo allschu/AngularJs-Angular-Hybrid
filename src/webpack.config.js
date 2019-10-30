@@ -7,8 +7,8 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
     mode: 'development',
     entry: {
-        'ng1': './index.ts',
-        'app': './main.ts'
+        'ng1': './src/index.ts',
+        'app': './src/main.ts'
     },
     output: {
         path: helpers.root('dist/dev'),
@@ -27,7 +27,11 @@ module.exports = {
                 loaders: ['awesome-typescript-loader', 'angular2-template-loader?keepUrl=true'],
                 exclude: [/\.(spec|e2e)\.ts$/]
             },
-            {   
+            {
+              test: /\.css$/,
+              loader: "style-loader!css-loader"
+            },
+            {
                 test: /\.html$/,
                 loader: 'html-loader'
             }
@@ -35,7 +39,7 @@ module.exports = {
     },
     plugins:[
         new HtmlWebpackPlugin({
-            template: '../config/index.html'
+            template: 'config/index.html'
         })
     ]
 }
